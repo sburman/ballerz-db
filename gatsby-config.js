@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: "/ballerz-db",
   siteMetadata: {
-    title: `ballerz-db`,
+    title: `ballerz showcase`,
     description: `A Ballerz demo site`,
     author: `@nftbig1`,
   },
