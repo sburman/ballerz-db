@@ -1,16 +1,48 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
+export const query = graphql`
+  query {
+    allBallerzCsv(limit:10) {
+      nodes {
+        ID
+        Image
+        Role
+        Team
+      }
+    }
+  }
+`;
+
+const IndexPage = ({ data }) => {
+  const orderNodes = data.allBallerzCsv.nodes;
+  return (<Layout>
     <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <h1>{orderNodes.length}</h1>
+    <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Image Url</th>
+            <th>Role</th>
+            <th>Team</th>
+          </tr>
+        </thead>
+        <tbody>
+          {orderNodes.map(node => (
+            <tr key={node.id}>
+              <td>{node.ID}</td>
+              <td>{node.Image}</td>
+              <td>{node.Role}</td>
+              <td>{node.Team}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     <StaticImage
       src="../images/gatsby-astronaut.png"
       width={300}
@@ -25,7 +57,7 @@ const IndexPage = () => (
       <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
       <Link to="/using-dsg">Go to "Using DSG"</Link>
     </p>
-  </Layout>
-)
+  </Layout>);
+};
 
 export default IndexPage

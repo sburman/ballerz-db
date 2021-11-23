@@ -11,10 +11,18 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+          name: `images`,
+          path: `${__dirname}/src/images`,
+        },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `ballerz`,
+        path: `${__dirname}/src/data/`,
       },
     },
+    `gatsby-transformer-csv`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
