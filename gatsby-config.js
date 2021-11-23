@@ -1,10 +1,9 @@
 module.exports = {
   pathPrefix: "/ballerz-db",
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `ballerz-db`,
+    description: `A Ballerz demo site`,
+    author: `@nftbig1`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
